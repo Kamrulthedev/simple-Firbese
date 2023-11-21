@@ -11,4 +11,6 @@
 * 10. crate const auth = getAuth(app)
 * 11. improt googleAuthProvider and create a new Provider
 * 12. usesignInWithPopUp and pass auth and provider
+* 13. active sign-in method (google, facebook, github, etc.)
+* 14. 
 * */ 
