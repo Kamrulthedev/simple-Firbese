@@ -1,6 +1,6 @@
 import { useState } from "react";
 import app from "../../firebese/firebase.init";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
 
 
@@ -8,10 +8,11 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/
 const Login = () => {
     const [User, setUser] = useState()
      const auth = getAuth(app)
-     const provider = new GoogleAuthProvider()
+     const GoogleProvider = new GoogleAuthProvider()
+     const GithubProvider = new GithubAuthProvider()
  
     const handlerAuthGoogleClilk = ()=> {
-        signInWithPopup(auth, provider)
+        signInWithPopup(auth, GoogleProvider)
         .then(result =>{
             const user = result.user;
             console.log(user)
@@ -37,11 +38,11 @@ const Login = () => {
 
     return (
         <div>
-        {
+        { User ?
             <div className="text-center mt-80">
             <button onClick={handlerSignOut} className="border-4 text-4xl font-bold  rounded-lg p-4 mt-6">Sing Out</button>
-        </div>
-         <div className="text-center">
+        </div>:
+         <div className="text-center mt-80">
         <button  onClick={handlerAuthGoogleClilk} className="border-4 text-4xl font-bold  rounded-lg p-4">Login</button>
          </div>
          }
